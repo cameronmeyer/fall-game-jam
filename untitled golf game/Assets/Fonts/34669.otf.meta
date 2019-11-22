@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 78f2615fd3711ad44988715d6b306e83
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Halyard Display
+  fontNames:
+  - Halyard Display
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0e889b22de22ea64b906033812d8fdd4, type: 3}
+  - {fileID: 12800000, guid: 444e25921b093e24db83555e658b9569, type: 3}
+  - {fileID: 12800000, guid: 44968b24d0ee4f740acb70a2014077fe, type: 3}
+  - {fileID: 12800000, guid: 2d71971c36167014eba72bac0904c0d5, type: 3}
+  - {fileID: 12800000, guid: 1143151fd9db6b74b83892c85f144d5e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
