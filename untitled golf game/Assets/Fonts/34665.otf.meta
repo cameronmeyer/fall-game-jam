@@ -1,0 +1,36 @@
+fileFormatVersion: 2
+guid: f474f9553bc60ea43b88690275e4570f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Halyard Display
+  fontNames:
+  - Halyard Display
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a72a6fa12859ab048ba23ce12e28d54a, type: 3}
+  - {fileID: 12800000, guid: bd42ace132c3dab449d8d8cd8a32efc1, type: 3}
+  - {fileID: 12800000, guid: 0e889b22de22ea64b906033812d8fdd4, type: 3}
+  - {fileID: 12800000, guid: 444e25921b093e24db83555e658b9569, type: 3}
+  - {fileID: 12800000, guid: 44968b24d0ee4f740acb70a2014077fe, type: 3}
+  - {fileID: 12800000, guid: d8ee27f4f5a599b4da6ff0851bff190a, type: 3}
+  - {fileID: 12800000, guid: bb8059165cbc93843a4538264cdb35a5, type: 3}
+  - {fileID: 12800000, guid: dca3bce625fcdd649b75cf0ca898c557, type: 3}
+  - {fileID: 12800000, guid: bf0673e713f85f5458001fde68c1f8dd, type: 3}
+  - {fileID: 12800000, guid: 2d71971c36167014eba72bac0904c0d5, type: 3}
+  - {fileID: 12800000, guid: ce6ba01f8baf8fe498943b2d08bd3312, type: 3}
+  - {fileID: 12800000, guid: 1143151fd9db6b74b83892c85f144d5e, type: 3}
+  - {fileID: 12800000, guid: c475042f54b464b4b9ba86f575dfadf8, type: 3}
+  - {fileID: 12800000, guid: 78f2615fd3711ad44988715d6b306e83, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
