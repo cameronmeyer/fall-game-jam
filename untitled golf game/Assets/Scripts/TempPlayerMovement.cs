@@ -10,6 +10,7 @@ public class TempPlayerMovement : MonoBehaviour
     public float rotationRate = 360;
 
     [SerializeField] float moveSpeed = 2;
+    [SerializeField] GameObject lWheel;
 
     void FixedUpdate()
     {
@@ -22,16 +23,33 @@ public class TempPlayerMovement : MonoBehaviour
     private void ApplyInput(float moveInput, float turnInput)
     {
         Move(moveInput);
-        Turn(turnInput);
+        Turn(turnInput, moveInput);
     }
 
     private void Move(float input)
     {
-        transform.Translate(Vector3.forward * input * moveSpeed);
+        /*if (lWheel != null)
+        {
+            transform.Translate(lWheel.transform.forward * input * moveSpeed);
+        }
+        else
+        {*/
+            transform.Translate(Vector3.forward * input * moveSpeed);
+        //}
     }
 
-    private void Turn(float input)
+    private void Turn(float turnInput, float moveInput)
     {
-        transform.Rotate(0, input * rotationRate * Time.deltaTime, 0);
+        if (moveInput != 0)
+        {
+            if (moveInput > 0)
+            {
+                transform.Rotate(0, turnInput * rotationRate * Time.deltaTime, 0);
+            }
+            else
+            {
+                transform.Rotate(0, -turnInput * rotationRate * Time.deltaTime, 0);
+            }
+        }
     }
 }
