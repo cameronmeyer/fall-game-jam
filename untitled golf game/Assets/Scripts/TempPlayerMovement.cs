@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TempPlayerMovement : MonoBehaviour
 {
-    private string moveInputAxis = "Vertical";
-    private string turnInputAxis = "Horizontal";
+    private string moveInputAxis = "Vertical P1";
+    private string turnInputAxis = "Horizontal P1";
 
     public float rotationRate = 360;
 
