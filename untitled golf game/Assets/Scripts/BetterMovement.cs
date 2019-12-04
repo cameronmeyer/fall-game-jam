@@ -4,21 +4,37 @@ using UnityEngine;
 
 public class BetterMovement : MonoBehaviour
 {
-    public GameObject RearLWheel;
-    public GameObject RearRWheel;
+    public List<AxleInfo> axleInfos;
+    public float maxMotorTorque;
+    public float maxSteeringAngle;
 
-    Vector3 forward = new Vector3(100, 0, 0);
-
-    // Start is called before the first frame update
-    void Start()
+    public void FixedUpdate()
     {
-        
+        float motor = maxMotorTorque * Input.GetAxis("Vertical");
+        float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
+            if(axleInfo.steering)
+            {
+                axleInfo.leftWheel.steerAngle = steering;
+                axleInfo.rightWheel.steerAngle = steering;
+            }
+            if(axleInfo.motor)
+            {
+                axleInfo.leftWheel.motorTorque = motor;
+                axleInfo.rightWheel.motorTorque = motor;
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    [System.Serializable]
+    public class AxleInfo
     {
-        RearLWheel.transform.Rotate(forward * Time.deltaTime);
-        RearRWheel.transform.Rotate(forward * Time.deltaTime);
+        public WheelCollider leftWheel;
+        public WheelCollider rightWheel;
+        public bool motor;
+        public bool steering;
     }
 }
+

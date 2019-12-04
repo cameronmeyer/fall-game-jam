@@ -81,6 +81,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2884646a-9804-46f1-9b8e-9434a3639a0d"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""gamepad"",
+                    ""action"": ""Forward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""6620a78f-92f2-4246-8d35-be2de4a5ccd7"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
