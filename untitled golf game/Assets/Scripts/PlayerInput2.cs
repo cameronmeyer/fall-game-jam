@@ -25,18 +25,23 @@ public class PlayerInput2 : MonoBehaviour {
 
     public List<AxleInfo> axleInfos;
     public float maxMotorTorque;
+    public float maxBrakeTorque;
     public float maxSteeringAngle;
+    public float wheelRpm;
+    public float brakePause = 0f;
 
-    void Awake () {
-        controls = new PlayerControls ();
+    void Awake()
+    {
+        controls = new PlayerControls();
         //lambda expressions. feelsBadMan
-        controls.Gameplay.Forward.performed += ctx => gas = ctx.ReadValue<float> ();
+        controls.Gameplay.Forward.performed += ctx => gas = ctx.ReadValue<float>();
         controls.Gameplay.Forward.canceled += ctx => gas = 0;
 
-        controls.Gameplay.Backward.performed += ctx => brake = ctx.ReadValue<float> ();
+        controls.Gameplay.Backward.performed += ctx => brake = ctx.ReadValue<float>();
         controls.Gameplay.Backward.canceled += ctx => brake = 0;
 
-        controls.Gameplay.Steer.performed += ctx => steer = ctx.ReadValue<Vector2> ();
+        controls.Gameplay.Steer.performed += ctx => steer = ctx.ReadValue<Vector2>();
+        //controls.Gameplay.Steer.canceled += ctx => steer = new Vector2(0, 0);
     }
 
     void OnEnable () {
@@ -49,7 +54,10 @@ public class PlayerInput2 : MonoBehaviour {
         //Turn ();
 
         float motor = maxMotorTorque * gas;
+        float brakes = maxBrakeTorque * brake;
         float steering = maxSteeringAngle * steer.x;
+
+        wheelRpm = axleInfos[1].leftWheel.rpm;
 
         foreach (AxleInfo axleInfo in axleInfos)
         {
@@ -62,7 +70,31 @@ public class PlayerInput2 : MonoBehaviour {
             {
                 axleInfo.leftWheel.motorTorque = motor;
                 axleInfo.rightWheel.motorTorque = motor;
+                
+                if ((axleInfo.leftWheel.rpm > 0 && brakes > 0) || motor > 0)
+                {
+                    axleInfo.leftWheel.brakeTorque = brakes;
+                    axleInfo.rightWheel.brakeTorque = brakes;
+
+                    brakePause = 2.0f;
+                }
+                if(axleInfo.leftWheel.rpm <= 0 && brakes > 0 && brakePause <= 0)
+                {
+                    axleInfo.leftWheel.brakeTorque = 0;
+                    axleInfo.rightWheel.brakeTorque = 0;
+
+                    axleInfo.leftWheel.motorTorque = .5f * maxMotorTorque * brake * (-1);
+                    axleInfo.rightWheel.motorTorque = .5f * maxMotorTorque * brake * (-1);
+                }
             }
+        }
+    }
+
+    private void Update()
+    {
+        if(brakePause > 0)
+        {
+            brakePause -= Time.deltaTime;
         }
     }
 
